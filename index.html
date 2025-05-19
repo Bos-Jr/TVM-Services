@@ -1,0 +1,142 @@
+from zipfile import ZipFile
+import os
+
+# Define HTML content
+html_content = """
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trio Vilo Marketing & Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #fffbe6;
+      color: #333;
+    }
+    header {
+      background: #d4af37;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      max-height: 100px;
+    }
+    h1, h2 {
+      color: #b8860b;
+    }
+    .hero {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .section {
+      padding: 30px 20px;
+    }
+    .services, .team, .contact {
+      background: #fffaf0;
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #d4af37;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .footer {
+      background: #f1e5bc;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .contact-info p {
+      margin: 5px 0;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      max-width: 500px;
+      margin: auto;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 15px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: #d4af37;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo-triovilo.png" alt="Trio Vilo Logo"/>
+</header>
+
+<div class="hero">
+  <h1>Trio Vilo Marketing & Services</h1>
+  <p>Ditubuhkan sejak 5 Februari 2015</p>
+</div>
+
+<div class="section services">
+  <h2>Perkhidmatan Kami</h2>
+  <p>
+    Menyediakan perkhidmatan pemasaran, perundingan, katering, pembekalan bahan binaan, pakaian & ICT, kontraktor, pengangkutan, penerbitan, serta penyewaan jentera dan peralatan. 
+    Juga menawarkan servis pendaftaran & pembaharuan lesen seperti SSM, MOF, CIDB, stamping perjanjian (Ejen LHDN), pembekalan tenaga kerja dan pembersihan.
+  </p>
+</div>
+
+<div class="section team">
+  <h2>Pasukan Kami</h2>
+  <ul>
+    <li><strong>Nurul-Fakhri bin Darmizal</strong> – Pengarah Urusan</li>
+    <li><strong>Mürshed Badla</strong> – Arkitek & Pereka</li>
+    <li><strong>Eizuwar</strong> – Kerani Jualan</li>
+  </ul>
+</div>
+
+<div class="section contact">
+  <h2>Hubungi Kami</h2>
+  <div class="contact-info">
+    <p><strong>HQ:</strong> 1st Floor, W3/604 Jln Masjid Lama, 17000 Pasir Mas, Kelantan</p>
+    <p><strong>Cawangan:</strong> Level 3 & 4, Wisma Suria, Jalan Teknokrat 6, Cyber 5, 63000 Cyberjaya, Selangor</p>
+    <p><strong>No. Tel:</strong> +6019-3848458 | +6017-4144335</p>
+    <p><strong>Email:</strong> triovilo.marketing@gmail.com</p>
+  </div>
+
+  <form>
+    <h3>Pertanyaan</h3>
+    <input type="text" placeholder="Nama Penuh" required />
+    <input type="email" placeholder="Alamat Emel" required />
+    <textarea rows="4" placeholder="Mesej anda..." required></textarea>
+    <button type="submit">Hantar</button>
+  </form>
+</div>
+
+<div class="footer">
+  <p>© 2025 Trio Vilo Marketing & Services | No. Pendaftaran: 201503036670 (002406563-D)</p>
+</div>
+
+</body>
+</html>
+"""
+
+# Save the HTML content to a file
+html_path = "/mnt/data/index.html"
+with open(html_path, "w", encoding="utf-8") as file:
+    file.write(html_content)
+
+# Create a ZIP file
+zip_path = "/mnt/data/trio-vilo-website.zip"
+with ZipFile(zip_path, "w") as zipf:
+    zipf.write(html_path, arcname="index.html")
+
+zip_path
