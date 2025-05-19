@@ -1,8 +1,3 @@
-from zipfile import ZipFile
-import os
-
-# Define HTML content
-html_content = """
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -18,52 +13,48 @@ html_content = """
     }
     header {
       background: #d4af37;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
     }
     header img {
-      max-height: 100px;
+      max-height: 120px;
     }
     h1, h2 {
       color: #b8860b;
     }
+    .hero, .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
     .hero {
       background: #fff;
-      padding: 40px 20px;
       text-align: center;
     }
     .section {
-      padding: 30px 20px;
-    }
-    .services, .team, .contact {
       background: #fffaf0;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     .section h2 {
       border-bottom: 2px solid #d4af37;
-      display: inline-block;
-      margin-bottom: 15px;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
     }
-    .footer {
-      background: #f1e5bc;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
+    ul {
+      padding-left: 20px;
     }
-    .contact-info p {
-      margin: 5px 0;
+    .contact-info p, ul li {
+      margin: 8px 0;
     }
     form {
       background: #fff;
       padding: 20px;
-      border: 1px solid #ddd;
-      max-width: 500px;
-      margin: auto;
+      border: 1px solid #ccc;
     }
     form input, form textarea {
       width: 100%;
       padding: 10px;
-      margin: 5px 0 15px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
     }
     form button {
@@ -73,29 +64,59 @@ html_content = """
       padding: 10px 20px;
       cursor: pointer;
     }
+    .footer {
+      background: #f1e5bc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    .whatsapp {
+      margin-top: 15px;
+    }
+    .whatsapp a {
+      text-decoration: none;
+      background: #25d366;
+      color: white;
+      padding: 10px 15px;
+      display: inline-block;
+      border-radius: 5px;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      margin-top: 15px;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="logo-triovilo.png" alt="Trio Vilo Logo"/>
+  <img src="logo-triovilo.png" alt="Logo Trio Vilo Marketing & Services"/>
 </header>
 
 <div class="hero">
   <h1>Trio Vilo Marketing & Services</h1>
-  <p>Ditubuhkan sejak 5 Februari 2015</p>
+  <p><strong>Ditubuhkan sejak:</strong> 05 Februari 2015</p>
+  <p>"Trio Vilo Marketing & Services menyediakan pelbagai perkhidmatan pemasaran, perundingan, katering, pembekalan bahan binaan, pakaian & ICT, kontraktor, pengangkutan, penerbitan, serta penyewaan jentera dan peralatan. Juga menawarkan servis pendaftaran & pembaharuan lesen seperti SSM, MOF, CIDB, stamping perjanjian (Ejen LHDN), pembekalan tenaga kerja dan pembersihan."</p>
 </div>
 
-<div class="section services">
-  <h2>Perkhidmatan Kami</h2>
-  <p>
-    Menyediakan perkhidmatan pemasaran, perundingan, katering, pembekalan bahan binaan, pakaian & ICT, kontraktor, pengangkutan, penerbitan, serta penyewaan jentera dan peralatan. 
-    Juga menawarkan servis pendaftaran & pembaharuan lesen seperti SSM, MOF, CIDB, stamping perjanjian (Ejen LHDN), pembekalan tenaga kerja dan pembersihan.
-  </p>
+<div class="section">
+  <h2>Senarai Perkhidmatan</h2>
+  <ul>
+    <li>Pemasaran & Perundingan</li>
+    <li>Katering & Pembekalan Bahan Binaan</li>
+    <li>Pembekalan Pakaian & ICT</li>
+    <li>Kontraktor & Pengangkutan</li>
+    <li>Penerbitan & Penyewaan Jentera/Peralatan</li>
+    <li>Pendaftaran/Pembaharuan Lesen (SSM, MOF, CIDB)</li>
+    <li>Stamping Perjanjian (Ejen LHDN)</li>
+    <li>Pembekalan Tenaga Kerja & Perkhidmatan Pembersihan</li>
+  </ul>
 </div>
 
-<div class="section team">
-  <h2>Pasukan Kami</h2>
+<div class="section">
+  <h2>Pasukan Pengurusan</h2>
   <ul>
     <li><strong>Nurul-Fakhri bin Darmizal</strong> – Pengarah Urusan</li>
     <li><strong>Mürshed Badla</strong> – Arkitek & Pereka</li>
@@ -103,40 +124,43 @@ html_content = """
   </ul>
 </div>
 
-<div class="section contact">
+<div class="section">
+  <h2>Alamat Syarikat</h2>
+  <p><strong>HQ:</strong><br>
+    1st Floor, W3/604 Jln Masjid Lama,<br>
+    17000 Pasir Mas, Kelantan</p>
+  <p><strong>Cawangan:</strong><br>
+    Level 3 & 4, Wisma Suria,<br>
+    Jalan Teknokrat 6, Cyber 5,<br>
+    63000 Cyberjaya, Selangor</p>
+
+  <iframe src="https://www.google.com/maps?q=1st+Floor,+W3/604+Jln+Masjid+Lama,+Pasir+Mas,+Kelantan&output=embed"></iframe>
+  <iframe src="https://www.google.com/maps?q=Wisma+Suria,+Jalan+Teknorat+6,+Cyberjaya&output=embed"></iframe>
+</div>
+
+<div class="section">
   <h2>Hubungi Kami</h2>
-  <div class="contact-info">
-    <p><strong>HQ:</strong> 1st Floor, W3/604 Jln Masjid Lama, 17000 Pasir Mas, Kelantan</p>
-    <p><strong>Cawangan:</strong> Level 3 & 4, Wisma Suria, Jalan Teknokrat 6, Cyber 5, 63000 Cyberjaya, Selangor</p>
-    <p><strong>No. Tel:</strong> +6019-3848458 | +6017-4144335</p>
-    <p><strong>Email:</strong> triovilo.marketing@gmail.com</p>
+  <p><strong>No. Tel:</strong> +6019-3848458 / +6017-4144335</p>
+  <p><strong>Email:</strong> <a href="mailto:triovilo.marketing@gmail.com">triovilo.marketing@gmail.com</a></p>
+
+  <div class="whatsapp">
+    <a href="https://wa.me/60174144335" target="_blank">Hubungi melalui WhatsApp</a>
   </div>
 
   <form>
-    <h3>Pertanyaan</h3>
-    <input type="text" placeholder="Nama Penuh" required />
-    <input type="email" placeholder="Alamat Emel" required />
-    <textarea rows="4" placeholder="Mesej anda..." required></textarea>
+    <h3>Borang Pertanyaan</h3>
+    <input type="text" placeholder="Nama Anda" required />
+    <input type="email" placeholder="Emel Anda" required />
+    <textarea placeholder="Mesej anda..." rows="4" required></textarea>
     <button type="submit">Hantar</button>
   </form>
 </div>
 
 <div class="footer">
-  <p>© 2025 Trio Vilo Marketing & Services | No. Pendaftaran: 201503036670 (002406563-D)</p>
+  <p>NO. PENDAFTARAN SSM : 201503036670 (002406563-D)</p>
+  <p>NO. SIJIL MOF : K10345427992917594 | NO. RUJUKAN PENDAFTARAN : 357-0002290239</p>
+  <p>© 2025 Trio Vilo Marketing & Services</p>
 </div>
 
 </body>
 </html>
-"""
-
-# Save the HTML content to a file
-html_path = "/mnt/data/index.html"
-with open(html_path, "w", encoding="utf-8") as file:
-    file.write(html_content)
-
-# Create a ZIP file
-zip_path = "/mnt/data/trio-vilo-website.zip"
-with ZipFile(zip_path, "w") as zipf:
-    zipf.write(html_path, arcname="index.html")
-
-zip_path
